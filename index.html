@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pioneer Bank</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Login Area -->
+    <div id="login-area">
+      <h1 class="text-center">Welcome to Pioneer Bank</h1>
+      <div class="submit-area">
+        <h4 class="mb-2">Login</h4>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <br />
+        <button id="login-btn" class="btn btn-success">Enter</button>
+      </div>
+    </div>
+    <!-- Main Area -->
+    <div id="main-area" class="container">
+      <div class="row top d-flex justify-content-evenly">
+        <div class="col-md-4 deposit items">
+          <h6 class="text-white">Deposit</h6>
+          <span>$</span>
+          <span id="deposit-amount">00</span>
+        </div>
+        <div class="col-md-4 withdraw items">
+          <h6 class="text-white">Withdraw</h6>
+          <span>$</span>
+          <span id="withdraw-amount">00</span>
+        </div>
+        <div class="col-md-4 balance items">
+          <h6 class="text-white">Balance</h6>
+          <span>$</span>
+          <span id="balance-amount">1240</span>
+        </div>
+      </div>
+      <div class="row main d-flex justify-content-evenly">
+        <div class="col-md-6 first">
+          <h4>Deposit</h4>
+          <input
+            id="deposit-input"
+            class="form-control"
+            type="text"
+            name="deposit"
+            minlength="0"
+            maxlength="4"
+            placeholder="$ amount you want to deposit"
+          />
+          <br />
+          <button id="deposit-btn" class="btn btn-success">Deposit</button>
+        </div>
+        <div class="col-md-6 second">
+          <h4>Withdraw</h4>
+          <input
+            id="withdraw-input"
+            type="text"
+            minlength="0"
+            maxlength="4"
+            class="form-control"
+            placeholder="$ amount you want to withdraw"
+          />
+          <br />
+          <button id="withdraw-btn" class="btn btn-success">Withdraw</button>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
