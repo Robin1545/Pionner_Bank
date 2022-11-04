@@ -25,10 +25,12 @@ const depositBtn = document.getElementById('deposit-btn');
 
 const depositInput = document.getElementById('deposit-input');
 
-depositBtn.addEventListener('click', () => {
+
+depositBtn.addEventListener('click', () => {    
+    let balance = document.getElementById('balance-amount');
     document.getElementById('deposit-amount').innerHTML = values.deposit;
-    values.balance -= depositInput.value;
-    document.getElementById('balance-amount').innerHTML = values.balance;
+    values.balance = parseFloat(values.balance) + parseFloat(depositInput.value);
+    balance.innerHTML = values.balance;
     depositInput.value = '';
 })
 
@@ -40,20 +42,27 @@ depositInput.addEventListener('change', (e) => {
 // Withdraw --------
 
 
-const withdrawInput= document.getElementById('withdraw-input');
+const widthdrawBtn = document.getElementById('withdraw-btn');
 
+const withdrawInput= document.getElementById('withdraw-input');
 
 withdrawInput.addEventListener('change', (e) => {
     const amount = parseFloat(e.target.value);
-    values.widthdraw += amount;
+    if(amount > values.balance || values.balance == 0){
+        widthdrawBtn.disabled = true;
+        alert('Insufficient balance!');
+    }else {
+        values.widthdraw += amount;
+        widthdrawBtn.disabled = false;
+    }
 })
 
-const widthdrawBtn = document.getElementById('withdraw-btn');
 
 
 widthdrawBtn.addEventListener('click', () => {
+    let balance = document.getElementById('balance-amount');
     document.getElementById('withdraw-amount').innerHTML = values.widthdraw;
     values.balance -= withdrawInput.value;
-    document.getElementById('balance-amount').innerHTML = values.balance;
+    balance.innerHTML = values.balance;
     withdrawInput.value = '';
 })
